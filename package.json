@@ -1,0 +1,24 @@
+{
+  "name": "hypothetical-bot",
+  "version": "0.0.1",
+  "description": "A Slack bot that helps out with daily hypotheticals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/josephheinz/Hypothetical-Bot"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "Joseph Heinz",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^4.4.0",
+    "cron": "^4.3.3",
+    "dotenv": "^17.2.2"
+  }
+}
