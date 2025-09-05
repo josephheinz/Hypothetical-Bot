@@ -34,5 +34,5 @@ See [INSTALLATION.md](INSTALLATION.md) for detailed setup instructions.
 
 ---
 
-## 📜 License
-MIT License – feel free to use and adapt.
+## License
+MIT License
