@@ -1,27 +1,31 @@
 #!/bin/bash
-# Exit immediately if a command fails
 set -e
+
+# Default port
+PORT=${1:-3001}
+
+echo "Using port $PORT"
 
 # 1️⃣ Build TypeScript
 echo "Building TypeScript..."
 npx tsc
 
-# 2️⃣ Kill any process on port 3001
-echo "Checking for process on port 3001..."
-PID=$(lsof -t -i:3001 || true)
+# 2️⃣ Kill any process on the port
+echo "Checking for process on port $PORT..."
+PID=$(lsof -t -i:$PORT || true)
 if [ -n "$PID" ]; then
-  echo "Killing process $PID on port 3001..."
+  echo "Killing process $PID on port $PORT..."
   kill -9 $PID
 else
-  echo "No process found on port 3001."
+  echo "No process found on port $PORT."
 fi
 
 # 3️⃣ Start localtunnel
-echo "Starting localtunnel on port 3001..."
-npx localtunnel --port 3001 --subdomain mybot &
+echo "Starting localtunnel on port $PORT..."
+npx localtunnel --port $PORT --subdomain mybot &
 LT_PID=$!
 echo "Localtunnel running with PID $LT_PID"
 
 # 4️⃣ Run the built Node project
 echo "Starting Node app..."
-node dist/index.js
+PORT=$PORT node dist/index.js
