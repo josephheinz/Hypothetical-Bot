@@ -22,7 +22,7 @@ fi
 
 # 3️⃣ Start localtunnel
 echo "Starting localtunnel on port $PORT..."
-npx localtunnel --port $PORT --subdomain mybot &
+npx localtunnel --port $PORT --subdomain hypothetical-bot &
 LT_PID=$!
 echo "Localtunnel running with PID $LT_PID"
 
